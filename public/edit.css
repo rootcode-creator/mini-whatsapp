@@ -1,0 +1,10 @@
+h3{
+    text-align: center;
+}
+
+.card{
+    padding: 10px;
+    position: relative;
+    left: 400px;
+    top: 80px;
+}
