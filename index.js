@@ -25,19 +25,22 @@ async function main() {
 }
 
 //Index Route
-app.get("/chats", async (req, res) => {
+app.get("/chats", asyncWrap( async (req, res) => {
   let chats = await chat.find();
   let total = chats.length;
   console.log(chats);
   res.render("index.ejs", { chats, total });
-});
+  
+}));
 
 //New Route
 app.get("/chats/new", (req, res) => {
   res.render("form.ejs");
 });
 
-app.post("/chats", (req, res) => {
+app.post("/chats", asyncWrap( async (req, res, next) => {
+
+  
   let { from, to, msg } = req.body;
   let newChat = new chat({
     from: from,
@@ -46,21 +49,32 @@ app.post("/chats", (req, res) => {
     created_at: new Date(),
   });
 
-  newChat
-    .save()
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  await newChat.save();
+
+    // .then((res) => {
+    //   console.log(res);
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    // });
 
   res.redirect("/chats");
-});
+  
+
+}));
+
+//Wrap Function
+function asyncWrap(fn) {
+
+  return function(req, res, next) {
+    fn(req, res, next).catch( (err) => next(err) );
+  };
+}
+
+
 
 //New - Show Route 
-app.get("/chats/:id", async (req, res, next) => {
-
+app.get("/chats/:id", asyncWrap( async (req, res, next) => {
   let {id} = req.params;
   let Chat = await chat.findById(id);
   if (!Chat) {
@@ -68,19 +82,21 @@ app.get("/chats/:id", async (req, res, next) => {
     
   }
   res.render("edit.ejs", {Chat} );
-});
+
+}));
 
 
 //Edit Route
 
-app.get("/chats/:id/edit", async (req, res) => {
+app.get("/chats/:id/edit", asyncWrap( async (req, res, next) => {
   let { id } = req.params;
   let details = await chat.findById(id);
   res.render("edit.ejs", { details });
-});
+ 
+}));
 
 //Update Route
-app.put("/chats/:id", async (req, res) => {
+app.put("/chats/:id", asyncWrap( async (req, res) => {
   let { id } = req.params;
   let { msg } = req.body;
   let updatedChat = await chat.findByIdAndUpdate(
@@ -90,20 +106,25 @@ app.put("/chats/:id", async (req, res) => {
   );
   console.log(updatedChat);
   res.redirect("/chats");
-});
+  
+}));
 
-//Delete Route
-app.delete("/chats/:id", async (req, res) => {
+//Destroy Route
+app.delete("/chats/:id", asyncWrap( async (req, res) => {
+
   let { id } = req.params;
   let deletedChat = await chat.findByIdAndDelete(id);
   console.log(deletedChat);
-  
   res.redirect("/chats");
-});
+
+}));
 
 app.get("/", (req, res) => {
   res.send("Working");
 });
+
+
+
 
 //Error handaling middleware
 app.use( (err, req, res, next) => {
