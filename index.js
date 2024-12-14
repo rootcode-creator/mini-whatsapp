@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV != "production") {
+  require('dotenv').config();
+}
+
 const express = require("express");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
@@ -19,9 +23,13 @@ main()
     console.log("Connection Successful");
   })
   .catch((err) => console.log(err));
+  const dbUrl = process.env.ATLASDB_URL;
+
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/whatsapp");
+  // await mongoose.connect("mongodb://127.0.0.1:27017/whatsapp");
+    await mongoose.connect(dbUrl);
+  
 }
 
 //New Route
