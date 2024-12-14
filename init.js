@@ -9,7 +9,7 @@ const dbUrl = process.env.ATLASDB_URL;
 
 console.log(dbUrl);
 main()
-  .then(() => { 
+  .then(() => {
     console.log("Connection Successful");
   })
   .catch((err) => console.log(err));
@@ -20,8 +20,8 @@ async function main() {
 
 }
 
-let allChats = [ 
-    {
+let allChats = [
+  {
     from: "neha",
     to: "priya",
     msg: "Send me your exam sheets",
@@ -56,4 +56,3 @@ let allChats = [
 ];
 
 chat.insertMany(allChats);
-  
