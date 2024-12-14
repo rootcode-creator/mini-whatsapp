@@ -62,6 +62,9 @@ app.post("/chats", asyncWrap( async (req, res, next) => {
   
 
 }));
+app.all("*", (req, res, next) => {
+  next(new ExpressError(404, "Page not found!"));
+})
 
 //Wrap Function
 function asyncWrap(fn) {
@@ -119,9 +122,7 @@ app.delete("/chats/:id", asyncWrap( async (req, res) => {
 
 }));
 
-app.get("/", (req, res) => {
-  res.send("Working");
-});
+
 
 
 
