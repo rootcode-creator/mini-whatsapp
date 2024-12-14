@@ -7,6 +7,7 @@ const chat = require("./models/chat.js")
 
 const dbUrl = process.env.ATLASDB_URL;
 
+console.log(dbUrl);
 main()
   .then(() => { 
     console.log("Connection Successful");

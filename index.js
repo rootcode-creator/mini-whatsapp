@@ -18,12 +18,16 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
+
+ const dbUrl = process.env.ATLASDB_URL;
+ console.log(dbUrl);
+
 main()
   .then(() => {
     console.log("Connection Successful");
   })
   .catch((err) => console.log(err));
-  const dbUrl = process.env.ATLASDB_URL;
+ 
 
 
 async function main() {
