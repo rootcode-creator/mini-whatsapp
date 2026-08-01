@@ -60,26 +60,44 @@ mini-whatsapp/
     └── index.ejs
 ```
 
-## ✨ Features
+## 🔧 Features
 
-- Browse all chat records from the home page
-- Create new chats using a form-based interface
-- Edit the message body of an existing chat
-- Delete a chat from the list
-- Show a total count of saved chats
-- Handle missing chat and invalid route errors gracefully
-- Store chat data in MongoDB through Mongoose
+| Feature | Status | Description |
+| --- | --- | --- |
+| Chat Listing | ✅ Implemented | Browse all chat records from the home page |
+| Create Chat | ✅ Implemented | Add a new chat through a simple form-based interface |
+| Edit Chat | ✅ Implemented | Update the content of an existing message |
+| Delete Chat | ✅ Implemented | Remove a chat from the list when it is no longer needed |
+| Persistent Storage | ✅ Implemented | Save and retrieve chat data with MongoDB and Mongoose |
+| Error Handling | ✅ Implemented | Gracefully respond to missing chats and invalid routes |
+| Friendly UI | ✅ Implemented | Display the app using EJS templates and Bootstrap styling |
+
+### Main Routes
+
+- `/` → redirects to `/chats`
+- `/chats` → displays all chats
+- `/chats/new` → form to create a new chat
+- `/chats/:id` → view/edit chat details
+- `/chats/:id/edit` → edit chat form
+
+### 🔄 Application Flow
+
+```mermaid
+flowchart TD
+    A[User] --> B[Browser]
+    B --> C[Express Server]
+    C --> D[Route Handler]
+    D --> E[(MongoDB Database)]
+    D --> F[Render EJS View]
+    F --> B
+```
 
 ## 🧰 Tech Stack
 
-- Node.js
-- Express.js
-- EJS
-- Mongoose
-- Bootstrap
-- Font Awesome
-- dotenv
-- method-override
+- **Backend:** Node.js + Express.js
+- **Frontend:** EJS, HTML, CSS, Bootstrap, and JavaScript
+- **Database:** MongoDB with Mongoose
+- **Tooling:** dotenv, method-override, and npm
 
 ## ⚙️ Installation
 
@@ -129,14 +147,6 @@ Then open:
 ```text
 http://localhost:3000
 ```
-
-### Main Routes
-
-- `/` → redirects to `/chats`
-- `/chats` → displays all chats
-- `/chats/new` → form to create a new chat
-- `/chats/:id` → view/edit chat details
-- `/chats/:id/edit` → edit chat form
 
 ## 🤝 Contributing
 
