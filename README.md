@@ -1,4 +1,16 @@
-# Mini WhatsApp
+<p align="center">
+  <img src="./logo.png" alt="Mini WhatsApp logo" width="96" height="96" />
+</p>
+
+<h1 align="center">Mini WhatsApp</h1>
+
+<p align="center"><i>A lightweight, full-stack chat application that mimics basic WhatsApp-style messaging.</i></p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/TYPE-CHAT%20APP-6366F1?style=for-the-badge&logo=whatsapp&logoColor=white&labelColor=4338CA" alt="Chat app" />
+  <img src="https://img.shields.io/badge/STACK-NODE%20%2B%20EXPRESS-10B981?style=for-the-badge&logo=node.js&logoColor=white&labelColor=047857" alt="Node.js and Express" />
+  <img src="https://img.shields.io/badge/DATABASE-MONGODB-06B6D4?style=for-the-badge&logo=mongodb&logoColor=white&labelColor=0F766E" alt="MongoDB" />
+</p>
 
 A lightweight, full-stack chat application that mimics basic WhatsApp-style messaging. The app lets users create, view, edit, and delete chat records through a simple web interface, with messages stored in MongoDB using Mongoose.
 
