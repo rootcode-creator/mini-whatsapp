@@ -128,11 +128,17 @@ node init.js
 
 ## 🔐 Environment Variables
 
-The app reads the following environment variable:
+Create a `.env` file in the project root:
 
-- `ATLASDB_URL` — required for connecting to MongoDB
+```env
+ATLASDB_URL=your_mongodb_connection_string
+NODE_ENV=development
+```
 
-The app also checks `NODE_ENV`; when it is not set to `production`, it loads variables from `.env` using dotenv.
+Notes:
+
+- `ATLASDB_URL` is required for connecting to MongoDB.
+- `NODE_ENV` is optional, but when it is not set to `production`, the app loads variables from `.env` using dotenv.
 
 ## ▶️ Running the App
 
