@@ -10,6 +10,9 @@
   <img src="https://img.shields.io/badge/TYPE-CHAT%20APP-6366F1?style=for-the-badge&logo=whatsapp&logoColor=white&labelColor=4338CA" alt="Chat app" />
   <img src="https://img.shields.io/badge/STACK-NODE%20%2B%20EXPRESS-10B981?style=for-the-badge&logo=node.js&logoColor=white&labelColor=047857" alt="Node.js and Express" />
   <img src="https://img.shields.io/badge/DATABASE-MONGODB-06B6D4?style=for-the-badge&logo=mongodb&logoColor=white&labelColor=0F766E" alt="MongoDB" />
+  <img src="https://img.shields.io/badge/VIEW-EJS-FF6B6B?style=for-the-badge&logo=javascript&logoColor=white&labelColor=CC4B4B" alt="EJS" />
+  <img src="https://img.shields.io/badge/STYLE-BOOTSTRAP-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white&labelColor=5A2D91" alt="Bootstrap" />
+  <img src="https://img.shields.io/badge/RUN-LOCAL%20SERVER-4F46E5?style=for-the-badge&logo=terminal&logoColor=white&labelColor=3730A3" alt="Local server" />
 </p>
 
 A lightweight, full-stack chat application that mimics basic WhatsApp-style messaging. The app lets users create, view, edit, and delete chat records through a simple web interface, with messages stored in MongoDB using Mongoose.
